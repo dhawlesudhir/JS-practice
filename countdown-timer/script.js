@@ -22,5 +22,8 @@ function countdown() {
 
   // console.log(days, hours, minutes, seconds);
 }
+
+//intial call
 countdown();
+
 setInterval(countdown, 1000);
