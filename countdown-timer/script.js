@@ -1,4 +1,4 @@
-const newYear = "1 Jan 2023";
+const newYear = "01 01 2023";
 
 const daysEl = document.getElementById("days");
 const hoursEl = document.getElementById("hours");
@@ -15,12 +15,16 @@ function countdown() {
   const minutes = Math.floor((totalSecond / 60) % 60);
   const seconds = Math.floor(totalSecond % 60);
 
-  daysEl.innerHTML = days;
-  hoursEl.innerHTML = hours;
-  minutesEl.innerHTML = minutes;
-  secondsEl.innerHTML = seconds;
+  daysEl.innerHTML = formateDate(days);
+  hoursEl.innerHTML = formateDate(hours);
+  minutesEl.innerHTML = formateDate(minutes);
+  secondsEl.innerHTML = formateDate(seconds);
 
   // console.log(days, hours, minutes, seconds);
+}
+
+function formateDate(date) {
+  return date < 10 ? `0${date}` : date;
 }
 
 //intial call
