@@ -1,13 +1,13 @@
-const newYear = "01 01 2023";
+const newYear = "01 01 2024";
 
 const daysEl = document.getElementById("days");
 const hoursEl = document.getElementById("hours");
 const minutesEl = document.getElementById("minutes");
 const secondsEl = document.getElementById("seconds");
+const newYearsDate = new Date(newYear);
+const currentDate = new Date();
 
 function countdown() {
-  const newYearsDate = new Date(newYear);
-  const currentDate = new Date();
   const totalSecond = (newYearsDate - currentDate) / 1000;
 
   const days = Math.floor(totalSecond / 86400);
@@ -27,7 +27,11 @@ function formateDate(date) {
   return date < 10 ? `0${date}` : date;
 }
 
-//intial call
-countdown();
-
-setInterval(countdown, 1000);
+if (currentDate > newYearsDate) {
+  const year = new Date(newYear);
+  alert("Already in new year. Happy New Year! " + year.getFullYear());
+} else {
+  //intial call
+  countdown();
+  setInterval(countdown, 1000);
+}
